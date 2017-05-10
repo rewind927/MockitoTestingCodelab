@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements LoginView {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		initView();
-		loginPresenter = new LoginPresenterImpl(this, new LoginRepositoryImpl(), new NetworkManager(this));
+		initPresenter();
 	}
 
 	private void initView() {
@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity implements LoginView {
 				loginPresenter.login(editTextAccount.getText().toString(), editTextPassword.getText().toString());
 			}
 		});
+	}
+
+	private void initPresenter() {
+		loginPresenter = new LoginPresenterImpl(this, new LoginRepositoryImpl(), new NetworkManager(this));
 	}
 
 	@Override
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements LoginView {
 
 	@Override
 	public void showNetworkError() {
-		Toast.makeText(MainActivity.this, "Input String is empty, please fill up before you press login!", Toast.LENGTH_SHORT).show();
+		Toast.makeText(MainActivity.this, "Network error, please check your network connection.", Toast.LENGTH_SHORT).show();
 	}
 
 }
