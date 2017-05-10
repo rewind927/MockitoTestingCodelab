@@ -9,10 +9,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 
 public class LoginPresenterTest {
 
@@ -35,14 +37,14 @@ public class LoginPresenterTest {
 	@Before
 	public void setupPresenter() {
 		MockitoAnnotations.initMocks(this);
-		loginPresenter = new LoginPresenterImpl(loginView, loginRepository, networkManager);
+//		loginPresenter = new LoginPresenterImpl(loginView, loginRepository, networkManager);
 	}
 
 	@Test
 	public void login_success_showSuccessMessage() {
 		when(networkManager.isNetworkAvailable()).thenReturn(true);
 		loginPresenter.login("hihi@abc.com", "hi");
-		verify(loginRepository).login(anyString(), anyString(), callbackCaptor.capture());
+		verify(loginRepository).login(eq("hihi@abc.com"), anyString(), callbackCaptor.capture());
 		callbackCaptor.getValue().onSuccess();
 		verify(loginView, times(1)).showLoading();
 		verify(loginView, times(1)).hideLoading();
