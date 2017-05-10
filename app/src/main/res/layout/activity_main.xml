@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:id="@+id/activity_main"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingLeft="@dimen/activity_horizontal_margin"
+		android:paddingRight="@dimen/activity_horizontal_margin"
+		android:paddingTop="@dimen/activity_vertical_margin"
+		android:paddingBottom="@dimen/activity_vertical_margin"
+		tools:context="ryanwang.com.mockitotestingcodelab.MainActivity">
+
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Account"
+			android:id="@+id/label_account"/>
+
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="textEmailAddress"
+			android:ems="10"
+			android:id="@+id/input_account"
+			android:layout_below="@+id/label_account"
+			android:layout_alignParentStart="true"/>
+
+	<TextView
+			android:text="password"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/input_account"
+			android:layout_alignParentStart="true"
+			android:id="@+id/label_password"/>
+
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="textPassword"
+			android:ems="10"
+			android:id="@+id/input_password"
+			android:layout_marginTop="17dp"
+			android:layout_below="@+id/label_password"
+			android:layout_alignParentStart="true"/>
+
+	<Button
+			android:text="Login"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/input_password"
+			android:layout_alignParentStart="true"
+			android:layout_marginTop="14dp"
+			android:id="@+id/btn_login"/>
+
+	<ProgressBar
+			style="?android:attr/progressBarStyle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_centerHorizontal="true"
+			android:visibility="gone"
+			android:id="@+id/progressbar_loading"/>
+</RelativeLayout>
