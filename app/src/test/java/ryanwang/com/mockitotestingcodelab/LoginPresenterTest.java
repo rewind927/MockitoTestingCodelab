@@ -10,11 +10,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -85,25 +83,11 @@ public class LoginPresenterTest {
 
 	@Test
 	public void login_accountIsEmpty_showDataEmpty() {
-		when(networkManager.isNetworkAvailable()).thenReturn(true);
-
-		loginPresenter.login("", "123");
-
-		verify(loginView).showLoading();
-		verify(loginRepository, never()).login(anyString(), anyString(), any(LoginRepository.Callback.class));
-		verify(loginView).hideLoading();
-		verify(loginView).showInputDataIsEmpty();
+		//TODO implement todo function.
 	}
 
 	@Test
 	public void login_networkNotAvailable_showNetworkError() {
-		when(networkManager.isNetworkAvailable()).thenReturn(false);
-
-		loginPresenter.login("hihi@abc,com", "hi");
-
-		verify(loginView).showLoading();
-		verify(loginRepository, never()).login(anyString(), anyString(), any(LoginRepository.Callback.class));
-		verify(loginView).hideLoading();
-		verify(loginView).showNetworkError();
+		//TODO implement todo function.
 	}
 }
